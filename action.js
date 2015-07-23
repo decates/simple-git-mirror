@@ -12,7 +12,7 @@ if (!shell.which('git')) {
 if (!shell.test('-d', config.directoryName)) {
 	// If not, initialize it
 	console.log('Creating git clone');
-	if (shell.exec('git clone --mirror --single-branch --branch "' + (config.branchName || 'master') + '" "' + config.sourceUrl + '" "' + config.directoryName + '"').code !== 0) {
+	if (shell.exec('git clone --bare --depth=2 --single-branch --branch "' + (config.branchName || 'master') + '" "' + config.sourceUrl + '" "' + config.directoryName + '"').code !== 0) {
 		echo('Error: Git clone failed');
 		exit(1);
 	}
@@ -38,7 +38,7 @@ var Action = function () {
 		// If so, fetch changes from the source repository
 		console.log('Fetching changes from source');
 		
-		if (shell.exec('git fetch -p origin').code !== 0) {
+		if (shell.exec('git fetch origin ' + (config.branchName || 'master')).code !== 0) {
 			echo('Error: Git fetch failed');
 			exit(3);
 		}

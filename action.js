@@ -38,7 +38,7 @@ var Action = function () {
 		// If so, fetch changes from the source repository
 		console.log('Fetching changes from source');
 		
-		if (shell.exec('git fetch origin ' + (config.branchName || 'master')).code !== 0) {
+		if (shell.exec('git fetch origin ' + (config.branchName || 'master') + ':' + (config.branchName || 'master')).code !== 0) {
 			echo('Error: Git fetch failed');
 			exit(3);
 		}

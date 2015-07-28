@@ -1,8 +1,8 @@
 # simple-git-mirror
-Combines a (super-dumb) node.js webhook listener with one-way pushing/mirroring of a git repository.
+Combines a (super-dumb) node.js webhook listener with one-way pushing/mirroring of a git repository. It uses [ShellJS]() to run the Git CLI from node, and [winser]() to run as a windows service.
 
 ## What is it for?
-I want to host my Git Repository on one server (BitBucket), but run CI builds off another (Visual Studio Online). You can set up a webhook in BitBucket to call a URL whenever a change is pushed. This app listens for the call, then fetches and pushes the changes to another Git repository.
+I want to host my Git Repository on one server (BitBucket), but run CI builds off another (Visual Studio Online). I can set up a webhook in BitBucket to call a URL whenever a change is pushed. This app listens for the call, then fetches and pushes the changes to another Git repository.
 
 It's not really coded for public consumption, but feel free to use it as a starting point and get in touch if you find it useful.
 
@@ -25,6 +25,11 @@ Download dependencies and install as a Windows service (called *'simple-git-mirr
 
 ... and you're done!
 
+### To Uninstall
+
+To remove the windows service, run the following from the *simple-git-mirror* directory:
+
+    npm run-script uninstall-windows-service
 
 ## TODO
 

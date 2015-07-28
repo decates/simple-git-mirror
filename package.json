@@ -4,7 +4,10 @@
   "description": "Combines a (dumb) Node.js webhook listener with git to one-way mirroring of a git repository.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "winser -i -s -c --startcmd \"node server.js\"",
+    "preuninstall": "winser -r -x",
+    "uninstall-windows-service": "winser -r -x"
   },
   "repository": {
     "type": "git",

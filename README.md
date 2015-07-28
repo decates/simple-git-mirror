@@ -7,7 +7,7 @@ I want to host my Git Repository on one server (BitBucket), but run CI builds of
 It's not really coded for public consumption, but feel free to use it as a starting point and get in touch if you find it useful.
 
 ## To Use
-You need to have node.js and git installed. The service install also assumes you're running on Windows.
+You need to have node.js and git installed. The service install also assumes you're running on Windows, in which case you need to run from a command line with elevated privileges (i.e. to manage services).
 
 First clone the repository:
 
@@ -22,6 +22,10 @@ Create your own config file based off the example:
 Download dependencies and install as a Windows service (called *'simple-git-mirror'*):
 
     npm install
+
+Finally start the service:
+
+    net start simple-git-mirror
 
 ... and you're done!
 

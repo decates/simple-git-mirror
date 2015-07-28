@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/decates/simple-git-mirror",
   "dependencies": {
-    "shelljs": "^0.5.1"
+    "shelljs": "^0.5.1",
+	"winser": "^1.0.0"
   }
 }
